@@ -9,17 +9,20 @@
 <h2>Cellular Automaton</h2>
 
 <p>REDGREEN is a successor to <a href="/projects/rube/">RUBE</a>.
-REDGREEN is a true cellular automaton (CA) and written in a much clearer language
-in which to express CA's, <a href="/projects/alpaca/">ALPACA</a>.
-REDGREEN is an extremely complex automaton, making full use of
-ALPACA's "class of states" feature.</p>
+Unlike RUBE, REDGREEN is proper cellular automaton (CA): the next
+state of each cell is determined only by its current state and
+the states of its neighbours.</p>
 
 <h2>Implementation</h2>
 
-<p>You can download the ALPACA v0.90
-distribution from this web server.
-It contains the ALPACA compiler, of which REDGREEN is one of the
-example CA descriptions.</p>
+<p>This implementation of REDGREEN is written in <a href="/projects/alpaca/">ALPACA</a>
+and compiled to a Perl script using the reference ALPACA compiler.
+As a language for expressing CA's, ALPACA is much, much clearer than
+C (the language in which RUBE was implemented.)  In fact, the need for
+a clear description language for RUBE's successor was one of the driving
+forces behind the development of ALPACA.
+REDGREEN is an extremely complex automaton, making full use of
+ALPACA's "class of states" feature.</p>
 
 <h2>The REDGREEN Universe</h2>
 
@@ -41,7 +44,7 @@ example CA descriptions.</p>
   Heavy things like pebbles fall through fire; water puts it out.
   Requires flammable fuel and air to keep burning, otherwise
   goes up in smoke.  Spreads to adjacent flammables like twigs
-  and heats up adjacent inflammables like rock.
+  and heats up adjacent non-flammables like rock.
 </td></tr>
 
 <tr><td>Earth</td><td>		<b><tt>#</tt></b></td><td>
@@ -80,7 +83,7 @@ example CA descriptions.</p>
 </td></tr>
 
 <tr><td>Spark</td><td>		<b><tt>*</tt></b></td><td>
-  An electrical phenomenon living a <A HREF="/projects/alpaca/eg/wireworld/">WireWorld</a> existance.
+  An electrical phenomenon living a <A HREF="/projects/alpaca/eg/wireworld/">WireWorld</a> existence.
 </td></tr>
 
 <tr><td>Tail</td><td>		<b><tt>-</tt></b></td><td>

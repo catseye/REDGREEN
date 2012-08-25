@@ -1,7 +1,5 @@
 /*
- * REDGREEN.ALP - REDGREEN description in ALPACA
- * v0.60 Jul 28 1998 Chris Pressey
- * Added BSD License May 3 2007
+ * REDGREEN.ALP - REDGREEN description in ALPACA, v2007.0722
  */
 
 /*
@@ -34,6 +32,16 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * History:
+ * Jul 28 1998: Original version (0.60)
+ * May  3 2007: Added BSD License 
+ * Jul 22 2007: fixed behaviour of Wire, Zappy, and BigZappy, thanks to
+ *              bug report by Stewart Gordon.  Following the REDGREEN
+ *              description in doc/redgreen.html, Wire now conforms to
+ *              WireWorld rules, and Zappy and BigZappy are now Burner.
  */
 
 /*** BEGIN ***/
@@ -128,7 +136,7 @@ state Tail "-"
 
 state Wire "="
  is Support
-  to Spark when 1 Spark and not 4 Spark;
+  to Spark when 1 Spark and not 3 Spark;
 
 state DuctTape "D"
  is Support
@@ -146,10 +154,12 @@ state Twig "l"
 
 state Zappy "z"
  is Passthru
+ is Burner
   to BigZappy;
 
 state BigZappy "Z"
  is Passthru
+ is Burner
   to Air;
 
 state Randomizer "?"

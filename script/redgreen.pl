@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# eg/redgreen/script/redgreen.pl - automatically generated from eg/redgreen/src/redgreen.alp by:
+#  - automatically generated from src/redgreen.alp by:
 # alpaca.pl v0.93
 # http://catseye.webhop.net/projects/alpaca/
 ######################################################
@@ -109,7 +109,7 @@ sub TailStateRules {
  };
 
 sub WireStateRules {
-  return 'Spark' if ((adjacent_state('Spark') >= 1) and (not (adjacent_state('Spark') >= 4)));
+  return 'Spark' if ((adjacent_state('Spark') >= 1) and (not (adjacent_state('Spark') >= 3)));
   return SupportClassRules() || 'Wire'
  };
 
@@ -128,12 +128,12 @@ sub TwigStateRules {
 
 sub ZappyStateRules {
   return 'BigZappy' if (1);
-  return PassthruClassRules() || 'Zappy'
+  return PassthruClassRules() || BurnerClassRules() || 'Zappy'
  };
 
 sub BigZappyStateRules {
   return 'Air' if (1);
-  return PassthruClassRules() || 'BigZappy'
+  return PassthruClassRules() || BurnerClassRules() || 'BigZappy'
  };
 
 sub RandomizerStateRules {
@@ -158,6 +158,8 @@ sub BurnerClassMember {
   return $_[0] eq 'Fire' ||
          $_[0] eq 'Magma' ||
          $_[0] eq 'Spark' ||
+         $_[0] eq 'Zappy' ||
+         $_[0] eq 'BigZappy' ||
          0
 };
 
