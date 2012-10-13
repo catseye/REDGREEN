@@ -114,7 +114,7 @@ state Bubble "o"
  is Steamy;
 
 state Fish "f"
-  to Air when not 1 Water,
+  to Air when not 1 Water and not 8 Fish,
   to Water when 4 Fish or 7 Water;
 
 state OnePebble "."
