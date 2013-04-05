@@ -2,13 +2,38 @@
 <head>
   <meta charset="utf-8">
   <title>REDGREEN Demo</title>
+  <style>
+#output {
+  border: 1px solid blue;
+}
+  </style>
 </head>
 <body>
 
 <h1>REDGREEN Demo</h1>
 
+<button id="load">Load</button>
+<button id="edit">Edit</button>
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+<button id="step">Step</button>
+Speed: <input id="speed" type="range" min="0" max="200" value="0" />
+
+<span id="select_source_container">
+  <select id="select_source">
+    <option>(select one...)</option>
+    <option>convey</option>
+    <option>life</option>
+    <option>pyramid</option>
+    <option>steam</option>
+    <option>wire</option>
+  </select>
+</span>
+
 <textarea id="input" rows="20" cols="80">
-                                  #####
+                               ###########
+
+
 
                                    # #
                  ......            # #
@@ -29,14 +54,117 @@
                                                 T
 </textarea>
 
-<pre id="output" style="border: 1px solid blue">
+<pre id="output">
 </pre>
 
-<button id="start">Start</button>
-<button id="stop">Stop</button>
-<button id="step">Step</button>
-<button id="load">Load</button>
-Speed: <input id="speed" type="range" min="0" max="200" value="0" />
+
+<div id="convey" style="display: none;"
+>
+
+                                                         l l : . l
+
+
+
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+</div>
+
+
+<div id="life" style="display: none;"
+>
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~f~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~f~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~f~~~f~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ffff~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~ff~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~f~f~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~f~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+  ####################################################
+
+</div>
+
+
+<div id="pyramid" style="display: none;"
+>             .
+                    
+                    
+                    
+             &gt;      
+             ?      
+                    
+            &gt; &gt;     
+            ? ?     
+                    
+           &gt; &gt; &gt;    
+           ? ? ?    
+                    
+          &gt; &gt; &gt; &gt;   
+          ? ? ? ?   
+                    
+         &gt; &gt; &gt; &gt; &gt;  
+         ? ? ? ? ?  
+                    
+       # # # # # # #
+       #############
+</div>
+
+
+<div id="steam" style="display: none;"
+>                               ###########
+
+
+
+                                   # #
+                 ......            # #
+                                   #  ~                      #
+                                   #######################   #
+                                  %#                         #
+                       . . .      T #####                    #
+                                  ###   #  :                 #
+                                        #                    #
+                                        #  .                 #
+                                        #                    #
+                                        #                    #
+                                        #  .                 #
+                                        #                    #
+                                        #                    #
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;##&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;############################
+                                                %
+                                                T
+</div>
+
+
+<div id="wire" style="display: none;"
+>
+
+
+    ====*-=====================*======
+    =                                =
+    ===-*======================*======
+    =                                         llll
+    =        ===                             lllll
+    =       =   =                             llll
+     =       =  =  &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+      =       = =
+      =        =  #
+      =        =
+      =        =
+      =        =
+      =        =
+      ==========
+
+</div>
+
 
 </body>
 <script src="yoob/controller.js"></script>
@@ -67,7 +195,11 @@ Speed: <input id="speed" type="range" min="0" max="200" value="0" />
     'stop': 'stop',
     'step': 'step',
     'load': 'load',
+    'edit': 'edit',
+    'speed': 'speed',
+    'select': 'select_source',
     'source': 'input',
-    'speed': 'speed'
+    'display': 'output'
   });
+  c.click_load();
 </script>
