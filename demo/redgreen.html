@@ -6,6 +6,10 @@
 #output {
   border: 1px solid blue;
 }
+
+.example {
+  display: none;
+}
   </style>
 </head>
 <body>
@@ -19,46 +23,15 @@
 <button id="step">Step</button>
 Speed: <input id="speed" type="range" min="0" max="200" value="0" />
 
-<span id="select_source_container">
-  <select id="select_source">
-    <option>(select one...)</option>
-    <option>convey</option>
-    <option>life</option>
-    <option>pyramid</option>
-    <option>steam</option>
-    <option>wire</option>
-  </select>
-</span>
+<select id="select_source"></select>
 
-<textarea id="input" rows="20" cols="80">
-                               ###########
-
-
-
-                                   # #
-                 ......            # #
-                                   #  ~                      #
-                                   #######################   #
-                                  %#                         #
-                       . . .      T #####                    #
-                                  ###   #  :                 #
-                                        #                    #
-                                        #  .                 #
-                                        #                    #
-                                        #                    #
-                                        #  .                 #
-                                        #                    #
-                                        #                    #
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;##&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;############################
-                                                %
-                                                T
-</textarea>
+<textarea id="input" rows="20" cols="80"></textarea>
 
 <pre id="output">
 </pre>
 
 
-<div id="convey" style="display: none;"
+<div id="convey" class="example"
 >
 
                                                          l l : . l
@@ -70,7 +43,7 @@ Speed: <input id="speed" type="range" min="0" max="200" value="0" />
 </div>
 
 
-<div id="life" style="display: none;"
+<div id="life" class="example"
 >
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -94,7 +67,7 @@ Speed: <input id="speed" type="range" min="0" max="200" value="0" />
 </div>
 
 
-<div id="pyramid" style="display: none;"
+<div id="pyramid" class="example"
 >             .
                     
                     
@@ -119,7 +92,7 @@ Speed: <input id="speed" type="range" min="0" max="200" value="0" />
 </div>
 
 
-<div id="steam" style="display: none;"
+<div id="steam" class="example"
 >                               ###########
 
 
@@ -144,7 +117,7 @@ Speed: <input id="speed" type="range" min="0" max="200" value="0" />
 </div>
 
 
-<div id="wire" style="display: none;"
+<div id="wire" class="example"
 >
 
 
@@ -169,12 +142,13 @@ Speed: <input id="speed" type="range" min="0" max="200" value="0" />
 </body>
 <script src="yoob/controller.js"></script>
 <script src="yoob/playfield.js"></script>
+<script src="yoob/preset-manager.js"></script>
 <script src="../script/redgreen.js"></script>
 <script>
   var output = document.getElementById('output');
   var c = new yoob.Controller();
   var pf;
-  
+
   c.load = function(text) {
       pf = new yoob.Playfield();
       pf.setDefault('Air');
@@ -197,9 +171,14 @@ Speed: <input id="speed" type="range" min="0" max="200" value="0" />
     'load': 'load',
     'edit': 'edit',
     'speed': 'speed',
-    'select': 'select_source',
     'source': 'input',
     'display': 'output'
   });
+
+  var p = (new yoob.PresetManager()).init({
+      selectElem: document.getElementById("select_source"),
+      controller: c
+  }).populateFromClass('example').select('steam');
+
   c.click_load();
 </script>
