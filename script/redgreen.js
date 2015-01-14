@@ -375,7 +375,7 @@ return 'Randomizer';
 
 function eval_ConveyorLeft(pf, x, y) {
 var id;
-if (((pf.get(x+0,y+1)==='Randomizer')&&guess)) {
+if (((pf.get(x+0,y+1)==='Randomizer')&&(Math.random()<.5))) {
   return 'ConveyorRight';
 }
 return 'ConveyorLeft';
@@ -383,7 +383,7 @@ return 'ConveyorLeft';
 
 function eval_ConveyorRight(pf, x, y) {
 var id;
-if (((pf.get(x+0,y+1)==='Randomizer')&&guess)) {
+if (((pf.get(x+0,y+1)==='Randomizer')&&(Math.random()<.5))) {
   return 'ConveyorLeft';
 }
 return 'ConveyorRight';
