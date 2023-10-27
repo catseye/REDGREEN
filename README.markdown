@@ -51,5 +51,5 @@ The REDGREEN Universe
     Torch            **`T`**   Provides endless fuel for a fire.
 
 
-[John Conway's Life]: https://github.com/catseye/ALPACA/tree/master/eg/life
-[WireWorld]: https://github.com/catseye/ALPACA/tree/master/eg/wireworld
+[John Conway's Life]: https://codeberg.org/catseye/ALPACA/src/branch/master/eg/life
+[WireWorld]: https://codeberg.org/catseye/ALPACA/src/branch/master/eg/wireworld
